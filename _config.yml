@@ -1,0 +1,14 @@
+#theme: minima
+remote_theme: jekyll/minima
+
+title: sub1inear
+author: sub1inear
+description: Projects
+
+header_pages:
+  - about.md
+
+minima:
+  skin: dark
+  social_links:
+    - { platform: github,   user_url: "https://github.com/sub1inear" }
