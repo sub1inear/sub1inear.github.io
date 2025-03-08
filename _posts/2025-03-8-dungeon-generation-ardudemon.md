@@ -45,7 +45,7 @@ for (uint8_t i = 0; i < ROOMS_MAX; i++) {
 }
 
 ```
-![Rooms](sub1inear.github.io/assets/images/dungeon-generation-ardudemon/rooms.gif)
+![Rooms](sub1inear.github.io/assets/images/dungeon-generation-ardudemon-rooms.gif)
 
 ## Step Two: Corridors
 
@@ -92,7 +92,7 @@ else { // L-joins
     corridor.middle = true;
 }
 ```
-![Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon/corridors.gif)
+![Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon-corridors.gif)
 
 ## Step Three: Blitting
 
@@ -140,7 +140,7 @@ static void draw_corridor_to_array(Corridor *corridor) {
     }
 }
 ```
-![Final Rooms and Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon/final.gif)
+![Final Rooms and Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon-final.gif)
 
 ### Step Four: Population
 For the entrance to the dungeon, I picked a random spot in room 0.
