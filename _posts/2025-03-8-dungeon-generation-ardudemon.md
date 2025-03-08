@@ -3,7 +3,7 @@ layout: post
 title: "Procedural Dungeon Generation"
 ---
 ## Overview
-When I was writing my game ArduDemon for the Arduboy, a Diablo I demake, I wanted to generate random dungeons for the player to explore. Unfortunately, many tutorials described techniques either too complicated for an 8-bit processor or confusing for me to tackle. Accordingly, I wrote my own mostly from scratch. 
+When I was writing my game ArduDemon for the Arduboy, a Diablo I demake, I wanted to generate random dungeons for the player to explore. Unfortunately, many tutorials described techniques either too complicated for an 8-bit processor or too confusing for me to tackle. Accordingly, I wrote my own mostly from scratch, and it is described in this article. 
 
 ## A Critical Problem
 One major limitation of the Arduboy is its 2.5k of RAM. While that alone is small, the frame buffer takes up 1k leaving you just 1.5k of RAM to work with! Since procedurally generated dungeons have to live in RAM, to have anything other than tiny dungeons I needed to somehow compress everything to fit.
@@ -45,7 +45,7 @@ for (uint8_t i = 0; i < ROOMS_MAX; i++) {
 }
 
 ```
-![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon/rooms.gif)
+![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon-rooms.gif)
 
 ## Step Two: Corridors
 
@@ -92,7 +92,7 @@ else { // L-joins
     corridor.middle = true;
 }
 ```
-![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon/corridors.gif)
+![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon-corridors.gif)
 
 ## Step Three: Blitting
 
@@ -140,7 +140,7 @@ static void draw_corridor_to_array(Corridor *corridor) {
     }
 }
 ```
-![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon/final.gif)
+![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon-final.gif)
 
 ### Step Four: Population
 For the entrance to the dungeon, I picked a random spot in room 0.
