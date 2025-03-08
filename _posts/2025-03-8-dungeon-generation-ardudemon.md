@@ -221,8 +221,7 @@ if (!(surrounding_bits[0] & // use bitwise and instead of logical and for speed 
     }
 }
 ```
-<img src="https://sub1inear.github.io/assets/images/dungeon-generation-ardudemon/ardudemon.gif" alt="ArduDemon" width="150" height="150" />
-
+Try it for yourself here:
 <iframe src="https://tiberiusbrown.github.io/Ardens/player.html?blah=https://community.arduboy.com/uploads/short-url/loy2rj8nqf4ir20TOmuUjIhBZsu.hex&g=none&z=1&p=0&palette=highcontrast" title="Ardudemon" width=512vw height=256vh></iframe>
 
 
