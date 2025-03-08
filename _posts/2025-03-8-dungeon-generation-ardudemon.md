@@ -17,7 +17,7 @@ I first randomly generated a array of 20 rooms. After each room was generated, i
 
 static bool rooms_overlap(Rect *room) {
     // prevent flush rooms
-    larger_room = Rect(room->x - 1, room->y - 1, room->width + 2, room->height + 2);
+    Rect larger_room = Rect(room->x - 2, room->y - 2, room->width + 4, room->height + 4);
 
     for (uint8_t i = 0; i < rooms_len; i++) {
         if (Arduboy2::collide(larger_room, rooms[i])) {
@@ -27,11 +27,11 @@ static bool rooms_overlap(Rect *room) {
 
     return false;
 }
-
+// ...
 rooms_len = 0;
 
 for (uint8_t i = 0; i < ROOMS_MAX; i++) {
-    new_room = gen_room();
+    Rect new_room = gen_room();
 
     if (rooms_overlap(&new_room)) {
         for (uint8_t h = 0; h < 20; h++) {
@@ -45,7 +45,7 @@ for (uint8_t i = 0; i < ROOMS_MAX; i++) {
 }
 
 ```
-![Rooms](sub1inear.github.io/assets/images/dungeon-generation-ardudemon-rooms.gif)
+<img src="https://sub1inear.github.io/assets/images/dungeon-generation-ardudemon-rooms.gif" width="150" height="150" />
 
 ## Step Two: Corridors
 
@@ -92,7 +92,7 @@ else { // L-joins
     corridor.middle = true;
 }
 ```
-![Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon-corridors.gif)
+<img src="https://sub1inear.github.io/assets/images/dungeon-generation-ardudemon-corridors.gif" width="150" height="150" />
 
 ## Step Three: Blitting
 
@@ -140,15 +140,15 @@ static void draw_corridor_to_array(Corridor *corridor) {
     }
 }
 ```
-![Final Rooms and Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon-final.gif)
+<img src="https://sub1inear.github.io/assets/images/dungeon-generation-ardudemon-final.gif" width="150" height="150" />
 
-### Step Four: Population
+## Step Four: Population
 For the entrance to the dungeon, I picked a random spot in room 0.
 For the exit, I just picked a random spot in room 1.
 The creatures were randomly placed all around the dungeon.
 If it was a boss level, just a boss would be generated and everything else filled up with dead monsters.
 
-### Step Five: Drawing
+## Step Five: Drawing
 The final step was to draw the bit-packed dungeon. To allow for multiple tiles and a isometric look to the scene, I used the 8 neighboring tiles to determine how to draw a specific tile.
 
 This was rather tricky to implement because of the (literal) edge cases; you don't want the next tile in the array to an edge tile to affect it! Accordingly, every read had to be checked if it was on the edge. The left and right read were unaffected as I specifically ensured the right and left sides were always ones. Therefore, it didn't matter if it wrapped around; it would stay the same. To not bore you with the details, I've only included the cardinal directions in this snippet.
@@ -184,9 +184,9 @@ if (bit > 0) {
 surrounding_bits[3] = bitRead(source[max(byte - 1, 0)], bit); 
 ```
 Then, I would use those to determine which tile would be drawn.
-- If the tile is a side, draw either a left or right side
-- If the tile is a top corner, draw a normal tile and either a left or right side
-- Otherwise, draw a normal tile
+- If the tile is a side, draw either a left or right side.
+- If the tile is a top corner, draw a normal tile and either a left or right side.
+- Otherwise, draw a normal tile.
 ```cpp
 if (!(surrounding_bits[0] & // use bitwise and instead of logical and for speed and smaller code
       surrounding_bits[1] &
