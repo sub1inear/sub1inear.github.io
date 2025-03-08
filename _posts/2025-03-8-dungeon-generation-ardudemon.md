@@ -45,7 +45,7 @@ for (uint8_t i = 0; i < ROOMS_MAX; i++) {
 }
 
 ```
-![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon-rooms.gif)
+![Rooms](sub1inear.github.io/assets/images/dungeon-generation-ardudemon/rooms.gif)
 
 ## Step Two: Corridors
 
@@ -92,7 +92,7 @@ else { // L-joins
     corridor.middle = true;
 }
 ```
-![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon-corridors.gif)
+![Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon/corridors.gif)
 
 ## Step Three: Blitting
 
@@ -140,7 +140,7 @@ static void draw_corridor_to_array(Corridor *corridor) {
     }
 }
 ```
-![Image]({{ site.baseurl }}/images/dungeon-generation-ardudemon-final.gif)
+![Final Rooms and Corridors](sub1inear.github.io/assets/images/dungeon-generation-ardudemon/final.gif)
 
 ### Step Four: Population
 For the entrance to the dungeon, I picked a random spot in room 0.
@@ -224,4 +224,4 @@ if (!(surrounding_bits[0] & // use bitwise and instead of logical and for speed 
 }
 ```
 ## Conclusion
-And that's it! (Well, a very small portion.) I hope you've enjoyed this guide and semi-understood it. The full code is available (here)[https://github.com/sub1inear/ArduDemon] in the `dungeon.cpp` (dungeon generation) and `map.cpp` (rending) files, if you want to dig a little deeper. 
+And that's it! (Well, a very small portion.) I hope you've enjoyed this guide and semi-understood it. The full code is available [here](https://github.com/sub1inear/ArduDemon) in the `dungeon.cpp` (dungeon generation) and `map.cpp` (rendering) files, if you want to dig a little deeper. 
