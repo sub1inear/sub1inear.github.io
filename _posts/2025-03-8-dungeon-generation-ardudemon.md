@@ -12,7 +12,7 @@ I decided to just use a bit to represent each tile. These could be packed, 8 int
 
 ## Step One: Rooms
 
-I first randomly generated a array of 20 rooms. After each room was generated, it would check if it overlapped with any other generated room. I increased the size of each room by one to ensure no room could be flush. If it did, it would repeatedly generate a new room until it was unobstructed. 
+I first randomly generated a array of 20 rooms. After each room was generated, it would check if it overlapped with any other generated room. I increased the size of each room to ensure no room could be flush. If it did, it would repeatedly generate a new room until it was unobstructed. 
 ```cpp
 
 static bool rooms_overlap(Rect *room, uint8_t rooms_len) {
