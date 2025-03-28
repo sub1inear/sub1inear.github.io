@@ -18,7 +18,7 @@ A nice diagram from the Atmega32u4 datasheet:
 <img src="https://sub1inear.github.io/assets/images/making-of-rift-part-1/i2c_diagram.png" alt="I2C Diagram"/>
 
 ## Getting Started: Multiplayer Pong
-After I finished my previous game, ArduDemon, I was suprised to see no one had made a multiplayer game. I decided, why not? And so I set out on making a version of Pong for two Minis. The Pong code was relatively straightforward, but the I2C was tricky. I started out as having the player manual indicate which device the was the controller and which was the target.
+After I finished my previous game, ArduDemon, I was suprised to see no one had made a multiplayer game. I decided, why not? And so I set out on making a version of Pong for two Minis. The Pong code was relatively straightforward, but the I2C was tricky. I started out as having the player manually indicate which device the was the controller and which was the target.
 
 ```cpp
 void setup() {
