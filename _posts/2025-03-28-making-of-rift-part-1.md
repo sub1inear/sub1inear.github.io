@@ -13,7 +13,7 @@ Mini pictures!
 ## An I2C Primer
 I2C stands for inter-integrated circuit and is a very common protocol of communication using just three wires, SDA (data), SCL (clock), and GND. There are two different roles on an I2C bus: controller (master) and target (slave). The controller can send data and request data. The target can recieve data and send data back when requested. Each target has a unique address, which the controller uses to identify it. The address `0x00` is reserved for general calls, where every target recieves the message. Usually, there is one controller and many targets but you can have multiple controllers as well (as discussed later).
 
-A nice diagram from the Atmega32u4:
+A nice diagram from the Atmega32u4 diagram:
 
 <img src="https://sub1inear.github.io/assets/images/making-of-rift-part-1/i2c_diagram.png" alt="I2C Diagram"/>
 
@@ -132,5 +132,6 @@ As luck would have it, I had spend the past month working on a fast fixed-point 
   <source src="https://sub1inear.github.io/assets/images/making-of-rift-part-1/raycaster_i2c.mp4" type="video/mp4">
 </video>
 
+See also:
 
 https://x.com/bateskecom/status/1805015679638393316
