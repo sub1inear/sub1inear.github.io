@@ -59,6 +59,9 @@ The article posed two solutions; the first, checking if the SDA line and SCL lin
 
 Being of an inquisitive nature, I tried the latter and completely re-wrote the entire I2C library from scratch with a full assembly ISR (interrupt service routine). I added a special condition so that the stop interrupt was checked for before anything else, like preserving the rest of the registers, was done. I also added my handshaking for more than two players.
 
+
+Unfortunately, much to my dismay, it didn't solve the problem. However, I did get a super-optimized ISR out of it. I tried the former solution (with some slight adjustments), and it worked perfectly! Finally, I could send multi-controller messages for days at a time without hanging the bus. After a long odyssey, I finally got it working.
+
 The beginning of the ISR:
 ```assembly
 ; set up Y pointer (data)
@@ -144,8 +147,6 @@ TW_MT_ARB_LOST:
     rjmp active_false_reti
 ; ----------------------------------------------------- ;
 ```
-
-Unfortunately, much to my dismay, it didn't solve the problem. However, I did get a super-optimized ISR out of it. I tried the former solution (with some slight adjustments), and it worked perfectly! Finally, I could send multi-controller messages for days at a time without hanging the bus. After a long odyssey, I finally got it working.
 
 ```cpp
 uint8_t busyChecks = I2C_BUS_BUSY_CHECKS;
