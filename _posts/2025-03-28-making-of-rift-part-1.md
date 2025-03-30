@@ -134,4 +134,4 @@ As luck would have it, I had spend the past month working on a fast fixed-point 
 
 See also:
 
-https://x.com/bateskecom/status/1805015679638393316
+[https://x.com/bateskecom/status/1805015679638393316](https://x.com/bateskecom/status/1805015679638393316)

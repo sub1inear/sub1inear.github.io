@@ -84,7 +84,7 @@ If all the roles except zero were taken, it would just end the loop immediately,
 
 ### Sending Data, Part 1
 
-Now with the handshaking out of the way, everyone had a role. I pondered the question and thought of a good way of sending data:
+Now with the handshaking out of the way, everyone had a role. I thought for a while and came up with of a good way of sending data:
 ```
 If role is controller
 	For i From numPlayers To 1
