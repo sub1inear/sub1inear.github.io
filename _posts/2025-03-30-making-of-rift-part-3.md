@@ -60,9 +60,9 @@ The article posed two solutions; the first, checking if the SDA line and SCL lin
 Being of an inquisitive nature, I tried the latter and completely re-wrote the entire I2C library from scratch with a full assembly ISR (interrupt service routine). I added a special condition so that the stop interrupt was checked for before anything else, like preserving the rest of the registers, was done. I also added my handshaking for more than two players.
 
 
-Unfortunately, much to my dismay, it didn't solve the problem. However, I did get a super-optimized ISR out of it. I tried the former solution (with some slight adjustments), and it worked perfectly! Finally, I could send multi-controller messages for days at a time without hanging the bus. After a long odyssey, I finally got it working.
+Unfortunately, much to my dismay, it didn't solve the problem. However, I did get a super-optimized ISR out of it. I did remove the early checking for the stop because it was overcomplicating the code. I tried the former solution (with some slight adjustments), and it worked perfectly! Finally, I could send multi-controller messages for days at a time without hanging the bus. After a long odyssey, I finally got it working.
 
-The beginning of the ISR:
+The beginning of the ISR (without the prologue):
 ```assembly
 ; set up Y pointer (data)
 ldi r28, lo8(%[data])
