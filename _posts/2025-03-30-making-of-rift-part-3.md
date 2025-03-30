@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Making of Rift: Part 2, Multi-Controller Networking"
+title: "The Making of Rift: Part 3, Multi-Controller Networking"
 ---
 
 ## Introduction
