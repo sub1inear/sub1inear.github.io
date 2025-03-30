@@ -87,10 +87,10 @@ If all the roles except zero were taken, it would just end the loop immediately,
 Now with the handshaking out of the way, everyone had a role. I thought for a while and came up with of a good way of sending data:
 ```
 If role is controller
-	For i From numPlayers To 1
-		Request Data From Player i
-		Send Data To Everyone
-	Send Controller Data to Everyone
+	For i from numPlayers to 1
+		Request data from player i
+		Send data to everyone
+	Send controller data to everyone
 ```
 The controller would request/read data from each player, then turn right around and send it out. It would then send its own data.
 
