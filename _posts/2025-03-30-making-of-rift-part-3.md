@@ -178,4 +178,42 @@ void update_multiplayer() {
     I2C::write(0x00, &sprites[id], false);
 }
 ```
+With the handshaking being:
+
+```cpp
+volatile uint8_t handshakeState;
+
+void handshakeOnReceive() {
+    return;
+}
+void handshakeOnRequest() {
+    handshakeState++;
+    I2C::transmit(&handshakeState);
+}
+uint8_t I2C::handshake() {
+    for (int8_t i = I2C_MAX_PLAYERS - 1; i >= 0; ) {
+        uint8_t dummy;
+
+        I2C::read(I2C::getAddressFromId(i), &dummy, 1);
+
+        switch (I2C::getTWError()) {
+        case TW_MR_SLA_NACK:
+            I2C::setAddress(I2C::getAddressFromId(i), true);
+            I2C::onReceive(i2c_detail::handshakeOnReceive);
+            I2C::onRequest(i2c_detail::handshakeOnRequest);
+
+            // handshakeState is the number of times the callback has been called.
+            // When the callback has been called i times, the final Arduboy has joined.
+            while (i2c_detail::handshakeState < i) { }
+
+            return i;
+        case TW_SUCCESS:
+            i--;
+            break;
+        }
+    }
+    return I2C_HANDSHAKE_FAILED;
+}
+```
+
 Ahh. Much better.
