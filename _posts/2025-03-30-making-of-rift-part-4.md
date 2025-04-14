@@ -152,8 +152,7 @@ uint8_t run_timeout() {
     return numPlayers;
 }
 
-void run_lobby() {
-    uint8_t numPlayers = run_timeout();
+void run_lobby(uint8_t numPlayers) {
     I2C::write(0x00, &id, false);
         
     font3x5.setCursor(0, 0);
