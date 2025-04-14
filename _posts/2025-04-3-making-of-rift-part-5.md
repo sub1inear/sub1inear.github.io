@@ -166,7 +166,7 @@ if (shoot) {
 Not checking for secret doors in the actual shoot code allows a subtle transition moment where the door almost slides forward or backwards.
 
 <video controls>
-  <source src="https://sub1inear.github.io/assets/images/making-of-rift-part-5/raycaster_secret_door.mp4" type="video/mp4">
+  <source src="https://sub1inear.github.io/assets/images/making-of-rift-part-5/raycaster_secret_doors.mp4" type="video/mp4">
 </video>
 
 
